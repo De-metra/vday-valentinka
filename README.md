@@ -48,7 +48,7 @@ vday-app/
 #### 🚀 Быстрый старт
 1. Установка зависимостей
 ```bash
-pip install fastapi uvicorn
+pip install -r requirements.txt
 ```
 2. Запуск приложения
 ```bash
