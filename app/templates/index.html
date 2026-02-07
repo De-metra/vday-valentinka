@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валентинка ❤️</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="valentine-card">
+            <h1 class="title">Ты будешь моим валентином?</h1>
+            <p class="subtitle">Выбери свой ответ:</p>
+            
+            <div class="hearts-container">
+                <button class="heart-btn yes-btn" onclick="chooseYes()">
+                    <span class="heart">❤️</span>
+                    <span class="btn-text">ДА</span>
+                </button>
+                
+                <button class="heart-btn no-btn" onclick="chooseNo()">
+                    <span class="heart">❤️</span>
+                    <span class="btn-text">НЕТ</span>
+                </button>
+            </div>
+            
+            <div class="message">
+                <p>Сделай правильный выбор! 💘</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function chooseYes() {
+            window.location.href = "/question/1";
+        }
+        
+        function chooseNo() {
+            window.location.href = "/threat";
+        }
+        
+        // Make "НЕТ" button move on hover
+        document.querySelector('.no-btn').addEventListener('mouseover', function() {
+            const x = Math.random() * (window.innerWidth - this.offsetWidth);
+            const y = Math.random() * (window.innerHeight - this.offsetHeight);
+            this.style.position = 'fixed';
+            this.style.left = x + 'px';
+            this.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>

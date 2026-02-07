@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Неверный выбор! ⚠️</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .threat-container {
+            background: linear-gradient(45deg, #8B0000, #FF0000);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .warning {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+        
+        .threat-text {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="threat-container">
+            <div class="warning">⚠️</div>
+            <h1>ОШИБКА!</h1>
+            <div class="threat-text">
+                <p>Это неправильный вариант! ❌</p>
+                <p>Любовь не терпит ошибок! 💔</p>
+                <p>Попробуй снова, пока не поздно! ⏳</p>
+            </div>
+            
+            <button class="try-again-btn" onclick="tryAgain()">
+                <span class="heart">❤️</span>
+                <span>ПОПРОБОВАТЬ СНОВА</span>
+            </button>
+            
+            <div class="threat-footer">
+                <p>P.S.: Сделай правильный выбор в следующий раз! 😉</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function tryAgain() {
+            window.location.href = "/";
+        }
+        
+        // Add some scary effects
+        document.body.addEventListener('mousemove', function(e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            document.body.style.background = `radial-gradient(circle at ${x*100}% ${y*100}%, #330000, #000000)`;
+        });
+    </script>
+</body>
+</html>

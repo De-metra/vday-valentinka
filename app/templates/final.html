@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравляем! 🎉</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .celebration {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff0000;
+            animation: fall 5s infinite;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .final-gif {
+            max-width: 300px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+        
+        .congrats-text {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="celebration">
+            <h1 style="color: #ff0000; font-size: 3em;">🎉 ПОЗДРАВЛЯЮ! 🎉</h1>
+            
+            <div class="congrats-text">
+                <h2>Ты прошел все испытания! 💖</h2>
+                <p>Ты доказал, что достоин быть моим валентином!</p>
+                <p>С Днём Святого Валентина! 💘</p>
+                <p class="signature">С любовью, De-metra 💕</p>
+            </div>
+            
+            <iframe src="/static/images/final.gif" width=480 height=480.000 frameBorder="0" allowFullScreen></iframe>
+            
+            <div class="final-message">
+                <p>Ты самый лучший! 💝</p>
+                <p>Надеюсь, тебе понравилась эта валентинка! 😊</p>
+            </div>
+            
+            <button class="restart-btn" onclick="restart()">
+                <span class="heart">❤️</span>
+                <span>НАЧАТЬ СНАЧАЛА</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function restart() {
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>

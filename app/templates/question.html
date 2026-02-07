@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопрос {{ question.id }} ❤️</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="valentine-card">
+            <div class="progress-bar">
+                <div class="progress" style="width: '{{ progress_percent }}%'"></div>
+            </div>
+            
+            <h2 class="question-title">Вопрос {{ question.id }} из {{ total_questions }}</h2>
+            <h1 class="question-text">{{ question.question }}</h1>
+            
+            <div class="answers-container">
+                {% for answer in question.answers %}
+                <button class="answer-btn {% if answer.correct %}correct-btn{% else %}wrong-btn{% endif %}"
+                        onclick="chooseAnswer( `{{ 'true' if answer.correct else 'false' }}`)">
+                    <img src="/static/images/{{ answer.image }}" alt="Сердечко" class="answer-image">
+                    <span class="answer-text">{{ answer.text }}</span>
+                </button>
+                {% endfor %}
+            </div>
+            
+            <div class="hint">
+                <p>💡 Выбирай с умом!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function chooseAnswer(isCorrect) {
+            if (isCorrect === true || isCorrect === 'true') {
+                const nextQuestion = JSON.parse('{{ question.id }}') + 1;
+                if (nextQuestion <= JSON.parse('{{ total_questions }}')) {
+                    window.location.href = "/question/" + nextQuestion;
+                } else {
+                    window.location.href = "/final";
+                }
+            } else {
+                window.location.href = "/threat";
+            }
+        }
+    </script>
+</body>
+</html>
